@@ -42,7 +42,7 @@
     "scripts": {
         "dev": [
             "Composer\\Config::disableProcessTimeout",
-            "npx concurrently \"php artisan serve\" \"npm run dev\""
+            "npx concurrently -k -n server,vite \"php artisan serve\" \"npm run dev -- --host\""
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
