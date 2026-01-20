@@ -22,7 +22,10 @@ Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('produc
 Route::get('/productos/tamaño/{tipo_tamaño}', [ProductoController::class, 'productosPorTamaño'])->name('producto.productosPorTamaño');
 Route::get('/productos/categoria/{tipo_categoria}', [ProductoController::class, 'productosPorCategoria'])->name('producto.productosPorCategoria');
 
-Route::get('/categorias',[CategoriaController::class, 'index'])->name('categoria.index');
+Route::prefix('rest')->name('api.')->group(function () {
+    Route::get('/categorias', [\App\Http\Controllers\Api\CategoriaController::class, 'index'])
+        ->name('categoria.index');
+});
 Route::get('/tamaños',[TamañoController::class, 'index'])->name('tamaño.index');
 
 Route::group(['middleware'=>["auth:sanctum"]],function(){
