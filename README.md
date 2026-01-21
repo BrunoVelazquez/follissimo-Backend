@@ -1,95 +1,59 @@
-# Introducción
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-## Temática del Proyecto
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-Florería Foliissimo: cada hoja cuenta una historia
-## Descripción del proyecto:
+## About Laravel
 
-Foliissimo es una florería que cuenta con una tienda virtual con principal objetivo, la venta de flores, plantas de interior y exterior, decoración e insumos para el cuidado de las mismas, donde el cliente puede realizar pedidos sobre uno o varios productos para el hogar.
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-Cada producto puede ser clasificado según tamaño, precio, categoría, y otras características a continuación.
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Cuando un cliente selecciona y realiza una compra de uno o más productos, se genera un pedido detallando cada uno de los productos seleccionados, más otros atributos que se mencionan a continuación
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-# Requisitos
+## Learning Laravel
 
-- Diagrama Entidad-Relación
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
 
-![ERD Compacto](https://github.com/iaw-2023/Data-Demons-laravel/assets/42704038/6d7b0171-89eb-4d75-8012-53dd9252cbb0)
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-![ERD Expandido](https://github.com/iaw-2023/Data-Demons-laravel/assets/42704038/bfc3879a-d583-45c5-8b40-146af7956f0d)
+## Laravel Sponsors
 
-## Proyecto Framework PHP - Laravel
-- Entidades que se podrán actualizar
-    * `Producto`
-    * `Categoría`
-    * `Tamaño`
-    * `Estado Pedido`
-- Reportes que se podrán generar/visualizar
-    * Pedidos realizados según X atributo/filtro
-    * Clientes según X atributo/filtro
-    * Productos según X atributo/filtro
-- Entidades que se podrán obtener por API
-    * `Producto`
-    * `Pedido`
-    * `Cliente`
-    * `Categoría`
-    * `Tamaño`
-    * `Detalle de pedido`
-- Entidades que se podrán modificar por API
-    * `Cliente`
-    * `Pedido`
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-## Javascript - React/Vue
-- Información que podrá ver el usuario
-    * Logo y nombre de la tienda
-    * Pestaña para ver pedidos realizados
-    * Carrusel de novedades sobre la tienda (Las categorías más visitadas,productos destacados)
-    * Una barra con todas las categorías
-    * Un recurso que podrá ser accedido para ver todos los productos de la tienda con algún orden predeterminado
-    * Un espacio para la búsqueda de productos
-    * Apartado de Contacto de la tienda
-- Acciones que el usuario podrá realizar, ya sea la primera vez que ingrese a la aplicación como futuros accesos a la misma
-    * Ingresar a cada producto para verlo con más detalle
-    * Navegar por las categorías
-    * Buscar producto/s
-    * Ver todos los productos
-    * Ver productos en el carrito
-    * Filtrar productos por alguna condición (Ej: mas vendidos, ultimos agregados, etc)
-    * Ver pedidos realizados
+### Premium Partners
 
-## Etapa 2: Proyecto Framework PHP - Laravel
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
 
-#### [Link](https://foliissimo-brunovelazquez.vercel.app/) al Deploy de Vercel
+## Contributing
 
-#### [Link](https://foliissimo-brunovelazquez.vercel.app/rest/documentation) a la documentación en SwaggerUI
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-### Librerías importadas
+## Code of Conduct
 
-#### [Bootstrap](https://getbootstrap.com/)
-#### [DataTables](https://datatables.net/)
-#### [JQuery](https://jquery.com/)
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-### Testeado en Safari, Brave, Mozilla Firefox, Google Chrome y Microsoft Edge
+## Security Vulnerabilities
 
-### Ejemplos para probar la API
-##### Nota: Para acceder a la API se utiliza /rest
-#### GET /categorias
-##### Obtiene la lista de todas las categorías
-#### GET /pedidos/{id}/index
-##### Obtiene todos los detalles de pedido con el ID indicado
-##### Ejemplo:
-/rest/pedidos/1/index devuelve la lista de detalles del pedido con ID 1, con el código 200
-/rest/pedidos/89/index o de cualquier ID de pedido que no exista, devuelve la lista vacía.
-#### GET /pedidos/{id_cliente}/index_id
-##### Obtiene la lista de pedidos asociados a un cliente en base a su ID
-##### Ejemplo
-/rest/pedidos/1/index_id devuelve los pedidos del cliente con ID 1
-#### GET /productos
-##### Obtiene la lista de todos los productos.
-#### GET /productos/{id}/show
-##### Obtiene la información de un producto en base a su ID
-##### Ejemplo:
-/rest/productos/1/show devuelve el producto con ID 1
-#### GET /tamaños
-##### Obtiene la lista de todos los tamaños
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
