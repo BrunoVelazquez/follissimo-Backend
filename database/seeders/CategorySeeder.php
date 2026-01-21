@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 
 class CategorySeeder extends Seeder
@@ -17,12 +16,11 @@ class CategorySeeder extends Seeder
         foreach ([
             'Planta interior',
             'Planta exterior',
-            'FLor habitual',
-            'FLor exótica',
+            'Flor habitual',
+            'Flor exótica',
             'Insumo',
         ] as $tipo) {
             Category::create(['name' => $tipo]);
         }
-
     }
 }
