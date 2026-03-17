@@ -9,24 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                        <table class="table-auto">
-                            <thead>
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Precio</th>
-                                    <th>Descripción</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($products as $product)
-                                    <tr class="odd:bg-white even:bg-gray-200">
-                                        <td>{{ $product->name }}</td>
-                                        <td>{{ $product->price }}</td>
-                                        <td>{{ $product->description }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                    <livewire:product-table />
                 </div>
             </div>
         </div>

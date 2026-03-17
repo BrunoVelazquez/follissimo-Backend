@@ -23,7 +23,7 @@ class ProductFactory extends Factory
 
         return [
             'name' => $this->faker->name(),
-            'price' => $this->faker->numberBetween(10000, 500000),
+            'price' => $this->faker->numberBetween(100, 5000),
             'color' => $this->faker->colorName(),
             'category_id' => Category::query()->inRandomOrder()->value('id'),
             'size_id' => Size::query()->inRandomOrder()->value('id'),
