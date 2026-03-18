@@ -34,26 +34,34 @@ new class extends Component {
 ?>
 
 <div>
-    <div class="mb-6 flex items-center gap-4">
-        <div class="relative w-full max-w-sm">
-            <input
-                wire:model.live.debounce.300ms="search"
-                type="text"
-                placeholder="Buscar producto por nombre..."
-                class="w-full rounded-md border-gray-300 dark:bg-gray-900 dark:text-gray-100 shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-            >
-            <div wire:loading class="absolute right-3 top-2.5">
-                <svg class="animate-spin h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
+    <div class="mb-6 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-4 min-w-0">
+            <div class="relative min-w-80">
+                <x-text-input
+                    wire:model.live.debounce.300ms="search"
+                    type="text"
+                    placeholder="Buscar producto por nombre..."
+                    class="w-full"
+                />
+                <div wire:loading class="absolute right-3 top-2.5">
+                    <svg class="animate-spin h-5 w-5 text-indigo-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                </div>
             </div>
+            @if($search)
+                <button wire:click="$set('search', '')" class="text-sm text-red-600 hover:underline whitespace-nowrap">
+                    Limpiar búsqueda
+                </button>
+            @endif
         </div>
-        @if($search)
-            <button wire:click="$set('search', '')" class="text-sm text-red-600 hover:underline">
-                Limpiar búsqueda
-            </button>
-        @endif
+
+        <x-link-button
+            href="{{ route('products.create') }}"
+            class="bg-green-600 hover:bg-green-700 focus:ring-green-500">
+            Crear producto
+        </x-link-button>
     </div>
 
     <div class="overflow-x-auto">
@@ -76,23 +84,23 @@ new class extends Component {
                         <td class="px-6 py-4 text-sm text-gray-900 dark:text-gray-100">{{ $product->description }}</td>
                        <td class="px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
                             <div class="flex items-center gap-2">
-
-                                <a href="{{ route('products.show', $product) }}" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-md text-xs font-semibold uppercase tracking-widest transition shadow-sm">
+                                <x-link-button
+                                    href="{{ route('products.show', $product) }}"
+                                    class="bg-blue-600 hover:bg-blue-700 focus:ring-blue-500">
                                     Ver
-                                </a>
-
-                                <a href="{{ route('products.edit', $product) }}" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-md text-xs font-semibold uppercase tracking-widest transition shadow-sm">
+                                </x-link-button>
+                                <x-link-button
+                                    href="{{ route('products.edit', $product) }}"
+                                    class="bg-blue-600 hover:bg-blue-700 focus:ring-blue-500">
                                     Editar
-                                </a>
-
-                                <button
+                                </x-link-button>
+                                <x-danger-button
                                     wire:click="delete({{ $product->id }})"
                                     wire:confirm="¿Estás seguro de que deseas eliminar este producto?"
-                                    class="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-md text-xs font-semibold uppercase tracking-widest transition shadow-sm"
+                                    class="cursor-pointer"
                                 >
                                     Eliminar
-                                </button>
-
+                                </x-danger-button>
                             </div>
                         </td>
                     </tr>
