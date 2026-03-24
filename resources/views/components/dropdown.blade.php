@@ -3,7 +3,6 @@
 @php
 $alignmentClasses = match ($align) {
     'left' => 'ltr:origin-top-left rtl:origin-top-right start-0',
-    'top' => 'origin-top',
     default => 'ltr:origin-top-right rtl:origin-top-left end-0',
 };
 
@@ -13,8 +12,26 @@ $width = match ($width) {
 };
 @endphp
 
-<div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
-    <div @click="open = ! open">
+<div class="relative"
+     x-data="{
+        open: false,
+        dropUp: false,
+        toggle() {
+            if (this.open) {
+                this.open = false;
+            } else {
+                const rect = this.$refs.trigger.getBoundingClientRect();
+                const spaceBelow = window.innerHeight - rect.bottom;
+
+                this.dropUp = spaceBelow < 250;
+                this.open = true;
+            }
+        }
+     }"
+     @click.outside="open = false"
+     @close.stop="open = false">
+
+    <div x-ref="trigger" @click="toggle()">
         {{ $trigger }}
     </div>
 
@@ -25,7 +42,8 @@ $width = match ($width) {
             x-transition:leave="transition ease-in duration-75"
             x-transition:leave-start="opacity-100 scale-100"
             x-transition:leave-end="opacity-0 scale-95"
-            class="absolute z-50 mt-2 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }}"
+            class="absolute z-50 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }}"
+            :class="dropUp ? 'bottom-full mb-2 origin-bottom' : 'mt-2'"
             style="display: none;"
             @click="open = false">
         <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
