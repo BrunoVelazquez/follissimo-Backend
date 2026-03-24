@@ -42,4 +42,27 @@ class ProductController extends Controller
         return redirect('/products')
             ->with('success', 'Producto creado existosamente');
     }
+
+    public function edit(Product $product)
+    {
+        $categories = Category::all();
+        $sizes = Size::all();
+        return view('products.edit', compact('product', 'categories', 'sizes'));
+    }
+
+    public function update(Request $request, Product $product)
+    {
+        $validatedData = $request->validate([
+            'name'        => 'required|string|max:255',
+            'price'       => 'required|numeric|min:0',
+            'description' => 'required|string',
+            'category_id' => 'required|exists:categories,id',
+            'size_id'     => 'required|exists:sizes,id',
+        ]);
+
+        $product->update($validatedData);
+
+        return redirect()->route('products.index')
+                         ->with('success', '¡El producto fue actualizado correctamente!');
+    }
 }

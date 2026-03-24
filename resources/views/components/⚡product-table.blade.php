@@ -22,6 +22,7 @@ new class extends Component {
                     $query->where('name', 'like', '%' . $this->search . '%')
                           ->orWhere('description', 'like', '%' . $this->search . '%');
                 })
+                ->oldest('id')
                 ->paginate(10),
         ]);
     }
